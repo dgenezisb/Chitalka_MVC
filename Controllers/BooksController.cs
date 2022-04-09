@@ -127,7 +127,7 @@ namespace Prr_stakan.Controllers
             {
                 if (string.Equals(check.id.ToString(), _id, StringComparison.OrdinalIgnoreCase))
                 {
-                    bookRet = _allBooks.booksRet.Where(i => i.id.Equals());
+                    //bookRet = _allBooks.booksRet.Where(i => i.id.Equals());
                 }
             }
             return View(books1);
