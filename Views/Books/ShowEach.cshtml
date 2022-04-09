@@ -1,0 +1,13 @@
+﻿@using Prr_stakan.Data.Models
+    <!--using Prr_stakan.ViewModels-->
+    @model IEnumerable<books>
+    @{
+        Layout = "_layout";
+
+    }
+    @{
+        foreach (var book in Model)
+        {
+            @book.bookName
+        };
+    }
