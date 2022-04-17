@@ -1,0 +1,26 @@
+﻿@{
+    var bName = "";
+    var bTxt = "";
+    var bImg = "";
+    foreach (var book in ViewBag.book)
+    {
+        bName = book.bookName;
+        bTxt = book.bookInside;
+        bImg = book.img;
+    }
+
+
+}
+
+<div style="background:#C0C0C0;height:650px;margin-top:-5%;padding-top:5%:">
+    <div style="width:60%;height:500px;margin-left:20%;margin-top:7%;margin-bottom:10%;position:absolute;text-align:center;position:absolute;">
+        <img src="@bImg" height="400">
+    </div>
+</div>
+<div style="height:100px;background:#DCDCDC;text-align: center;padding-top:0%;font-size:60px;">
+    @bName
+
+</div>
+<div style="height:600px;overflow:scroll;width:70%;margin-left:15%;margin-top:5%;">
+    @bTxt
+</div>

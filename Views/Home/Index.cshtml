@@ -1,0 +1,21 @@
+﻿@{
+    ;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chitalka</title>
+</head>
+<body>
+    @{
+        foreach(var book in ViewBag.Books)
+            {
+                @book.bookName
+                @book.bookInside
+                @book.descriprionBook
+                @book.id
+            }
+    }
+</body>
+</html>

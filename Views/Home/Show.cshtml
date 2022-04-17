@@ -1,0 +1,24 @@
+﻿
+@{
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chitalka</title>
+</head>
+<body>
+    @{ 
+        foreach(var book in ViewBag.book)
+            {
+                @book.id
+            }
+    }
+ 
+
+
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+﻿
+<div style="height:300px;background:#D3D3D3;">
+    <div style="width:40%;;height:250px;margin-top:30px;;margin-left:2%;position:absolute;text-align:center;">
+        <img src="@{ foreach (var book in ViewBag.user1)
+            {
+                @book.ico
+                } }" width="400px">
+    </div>
+    <div style="width:40%;margin-top:30px;position:absolute;margin-left:50%;">
+        <ul class="list-group" style="margin:0.5%;">
+            <li class="list-group-item">Имя</li>
+            <li class="list-group-item">
+                @{ foreach (var book in ViewBag.user1)
+                    {
+                        @book.usrName
+                    } }
+                    </li>
+        </ul>
+        <ul class="list-group" style="margin:0.5%;">
+            <li class="list-group-item">Мыло</li>
+            <li class="list-group-item">
+                @{ foreach (var book in ViewBag.user1)
+                    {
+                        @book.mail
+                    } }
+                    </li>
+        </ul>
+        <ul class="list-group" style="margin:0.5%;">
+            <li class="list-group-item">пароль</li>
+            <li class="list-group-item">
+                @{ foreach (var book in ViewBag.user1)
+                    {
+                        @book.pswrd
+                    } }
+                    </li>
+        </ul>
+    </div>
+</div>
+<div style="background:#DCDCDC;padding-top:3%;padding-bottom:3%;">
+    <form style="width:60%;margin-left:20%;margin-top:">
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Новая заметка</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-left:45%;">Submit</button>
+    </form>
+</div>
+<div style="width:70%;margin-left:15%;margin-top:5%;margin-bottom:2%;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Элемент заметок</li>
+        <li class="list-group-item">Второй элемент</li>
+        <li class="list-group-item">Третий элемент</li>
+        <li class="list-group-item">Четвертый элемент</li>
+        <li class="list-group-item">И пятый</li>
+        <li class="list-group-item">Шестой туда же</li>
+        <li class="list-group-item">Седьмой</li>
+    </ul>
+</div>
