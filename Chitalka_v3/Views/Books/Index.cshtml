@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Chitalka_v3.Models.Books>
+
+
+
+<!-- а так можно юзать методы    <a asp-action="Create">Create New</a> -->
+
+<!--<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bookInside)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descriprionBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.categoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.author)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>-->
+<!--@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookInside)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descriprionBook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>-->
+
+<div class="row" style="margin-left:6%;margin-right:0%;margin-top:2%;">
+@{
+
+    foreach (var item in Model)
+    {
+
+
+        <div class="card" style="width: 20%;margin:1.5%;height:400px;">
+            <img src="@Html.DisplayFor(modelItem => item.img)" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.bookName)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.descriprionBook)</p>
+                <a asp-action="Details" asp-route-id="@item.id" class="btn btn-primary">Просмотреть книгу</a>
+            </div>
+        </div>
+    }
+
+}
+
+</div>  

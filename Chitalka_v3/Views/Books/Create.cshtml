@@ -1,0 +1,40 @@
+﻿@model Chitalka_v3.Models.Books
+
+@{
+    ViewData["Title"] = "Добавление книги";
+}
+
+<form asp-action="Create" style="width:80%;margin-top:5%;margin-left:10%;">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Автор</label>
+        <input asp-for="author" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Айзек Азимов" name="author">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Название</label>
+        <input asp-for="bookName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Основание" name="bookName">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Жанр</label>
+        <input asp-for="categoryName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="сай-фай" name="categoryName">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Краткое описание книги</label>
+        <input asp-for="descriprionBook" type="text" class="form-control" id="exampleFormControlInput1" placeholder="мама-мия,это просто чума!!"name="descriprionBook">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Картинка</label>
+        <input asp-for="img" type="text" class="form-control" id="exampleFormControlInput1" placeholder="вставь путь с сервера"name="img">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Год выхода</label>
+        <input asp-for="year" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1942" name="year">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Сама книга</label>
+        <textarea asp-for="bookInside" class="form-control" id="exampleFormControlTextarea1" rows="3" name="bookInside"></textarea>
+    </div>
+    <button class="btn btn-primary" value="Create" type="submit">Добавить книгу</button>
+</form>
+
+

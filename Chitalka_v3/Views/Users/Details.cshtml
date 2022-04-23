@@ -1,0 +1,48 @@
+﻿@model Chitalka_v3.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.usrName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.usrName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pswrd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pswrd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ifAdmin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ifAdmin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.mail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.mail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ico)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ico)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
