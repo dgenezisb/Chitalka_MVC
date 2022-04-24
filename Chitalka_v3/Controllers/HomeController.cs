@@ -9,13 +9,17 @@ namespace Chitalka_v3.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
         private readonly Chitalka_v3Context _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        /*public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        }*/
+        public HomeController(Chitalka_v3Context context)
+        {
+            _context = context;
         }
 
         public async Task<IActionResult> Index()
