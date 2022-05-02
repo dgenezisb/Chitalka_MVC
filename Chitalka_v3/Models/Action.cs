@@ -12,10 +12,6 @@
             get;
             set;
         }
-        public Category Category
-        {
-            get;
-            set;
-        }
+        
     }
 }

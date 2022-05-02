@@ -17,5 +17,17 @@ namespace Chitalka_v3.Data
         public DbSet<Chitalka_v3.Models.Books> Books { get; set; }
 
         public DbSet<Chitalka_v3.Models.User> User { get; set; }
+
+        public DbSet<Chitalka_v3.Models.Author> Author { get; set; }
+
+        public DbSet<Chitalka_v3.Models.Centuary> Centuary { get; set; }
+
+        public DbSet<Chitalka_v3.Models.Country> Country { get; set; }
+
+        public DbSet<Chitalka_v3.Models.Genre> Genre { get; set; }
+
+        public DbSet<Chitalka_v3.Models.Image> Image { get; set; }
+
+        public DbSet<Chitalka_v3.Models.Image2> Image2 { get; set; }
     }
 }

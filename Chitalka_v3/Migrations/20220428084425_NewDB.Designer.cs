@@ -4,6 +4,7 @@ using Chitalka_v3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chitalka_v3.Migrations
 {
     [DbContext(typeof(Chitalka_v3Context))]
-    partial class Chitalka_v3ContextModelSnapshot : ModelSnapshot
+    [Migration("20220428084425_NewDB")]
+    partial class NewDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,9 +33,6 @@ namespace Chitalka_v3.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Biogr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Books")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CountryId")
@@ -79,21 +78,6 @@ namespace Chitalka_v3.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("descriprionBook")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("inpAuthor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("inpCentuary")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("inpCountry")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("inpGenre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("inpImage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");

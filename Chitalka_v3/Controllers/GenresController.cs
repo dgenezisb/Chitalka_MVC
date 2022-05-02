@@ -7,28 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Chitalka_v3.Data;
 using Chitalka_v3.Models;
-using Chitalka_v3.specFunctions;
 
 namespace Chitalka_v3.Controllers
 {
-    public class BooksController : Controller
+    public class GenresController : Controller
     {
         private readonly Chitalka_v3Context _context;
 
-        public BooksController(Chitalka_v3Context context)
+        public GenresController(Chitalka_v3Context context)
         {
             _context = context;
         }
 
-        // GET: Books
+        // GET: Genres
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Books.ToListAsync());
+            return View(await _context.Genre.ToListAsync());
         }
 
-        //var i = new stringCombiner()
-
-        // GET: Books/Details/5
+        // GET: Genres/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -36,53 +33,39 @@ namespace Chitalka_v3.Controllers
                 return NotFound();
             }
 
-            var books = await _context.Books
+            var genre = await _context.Genre
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (books == null)
+            if (genre == null)
             {
                 return NotFound();
             }
 
-            return View(books);
+            return View(genre);
         }
 
-        // GET: Books/Create
+        // GET: Genres/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Books/Create
+        // POST: Genres/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,bookInside,bookName,descriprionBook,ImageID,AuthorId,CentuaryID,CountryID,GenreID")] Books books)
+        public async Task<IActionResult> Create([Bind("id,Name")] Genre genre)
         {
             if (ModelState.IsValid)
             {
-               
-                _context.Add(books);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(CreateTb("books.inpAuthor,books.bookName"));
-            }
-            return View(books);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateTb([Bind("books.inpAuthor,books.bookName")] Books books)
-        {
-            if (ModelState.IsValid)
-            {
-
-                _context.Add(books);
+                _context.Add(genre);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(books);
+            return View(genre);
         }
 
-        // GET: Books/Edit/5
+        // GET: Genres/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -90,22 +73,22 @@ namespace Chitalka_v3.Controllers
                 return NotFound();
             }
 
-            var books = await _context.Books.FindAsync(id);
-            if (books == null)
+            var genre = await _context.Genre.FindAsync(id);
+            if (genre == null)
             {
                 return NotFound();
             }
-            return View(books);
+            return View(genre);
         }
 
-        // POST: Books/Edit/5
+        // POST: Genres/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,bookInside,bookName,descriprionBook,ImageID,AuthorID,CentuaryID,CountryID,GenreID")] Books books)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Name")] Genre genre)
         {
-            if (id != books.id)
+            if (id != genre.id)
             {
                 return NotFound();
             }
@@ -114,12 +97,12 @@ namespace Chitalka_v3.Controllers
             {
                 try
                 {
-                    _context.Update(books);
+                    _context.Update(genre);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BooksExists(books.id))
+                    if (!GenreExists(genre.id))
                     {
                         return NotFound();
                     }
@@ -130,10 +113,10 @@ namespace Chitalka_v3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(books);
+            return View(genre);
         }
 
-        // GET: Books/Delete/5
+        // GET: Genres/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -141,30 +124,30 @@ namespace Chitalka_v3.Controllers
                 return NotFound();
             }
 
-            var books = await _context.Books
+            var genre = await _context.Genre
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (books == null)
+            if (genre == null)
             {
                 return NotFound();
             }
 
-            return View(books);
+            return View(genre);
         }
 
-        // POST: Books/Delete/5
+        // POST: Genres/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var books = await _context.Books.FindAsync(id);
-            _context.Books.Remove(books);
+            var genre = await _context.Genre.FindAsync(id);
+            _context.Genre.Remove(genre);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BooksExists(int id)
+        private bool GenreExists(int id)
         {
-            return _context.Books.Any(e => e.id == id);
+            return _context.Genre.Any(e => e.id == id);
         }
     }
 }

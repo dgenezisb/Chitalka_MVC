@@ -22,25 +22,26 @@
             set;
             get;
         }
-        public string img
+
+        //inp поля чисто служебный бдсм
+        public string inpImage { get; set; }
+        public string inpAuthor { get; set; }
+        public string inpCentuary { get; set; }
+        public string inpCountry { get; set; }
+        public string inpGenre { get; set; }
+
+        public virtual Image Image
         {
             set;
             get;
         }
-        public string categoryName
-        {
-            set;
-            get;
-        }
-        public string year
-        {
-            set;
-            get;
-        }
-        public string author
-        {
-            get;
-            set;
-        }
+        
+        public virtual Author Author { get; set; }
+
+        public virtual Centuary Centuary { get; set; }
+
+        public virtual Country Country { get; set; }
+
+        public virtual Genre Genre { get; set; }
     }
 }
