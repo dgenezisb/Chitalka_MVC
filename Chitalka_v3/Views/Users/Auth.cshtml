@@ -1,0 +1,23 @@
+﻿@model Chitalka_v3.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Auth" style="width:40%;margin-left:30%;margin-top:150px;">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email </label>
+    <input type="email" asp-for="mail" class="form-control" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">Данные под защитой пива</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">UserName</label>
+    <input asp-for="usrName" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input asp-for="pswrd"type="password" class="form-control">
+  </div>
+
+  <input type="submit" value="Auth" class="btn btn-primary" />
+</form>

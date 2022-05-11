@@ -1,0 +1,66 @@
+﻿@model Chitalka_v3.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<!--<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="usrName" class="control-label"></label>
+                <input asp-for="usrName" class="form-control" />
+                <span asp-validation-for="usrName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pswrd" class="control-label"></label>
+                <input asp-for="pswrd" class="form-control" />
+                <span asp-validation-for="pswrd" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ifAdmin" /> @Html.DisplayNameFor(model => model.ifAdmin)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="mail" class="control-label"></label>
+                <input asp-for="mail" class="form-control" />
+                <span asp-validation-for="mail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ico" class="control-label"></label>
+                <input asp-for="ico" class="form-control" />
+                <span asp-validation-for="ico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>-->
+
+<form asp-action="Create" style="width:40%;margin-left:30%;margin-top:150px;">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email </label>
+    <input type="email" asp-for="mail" class="form-control" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">Данные под защитой пива</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">UserName</label>
+    <input asp-for="usrName" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input asp-for="pswrd"type="password" class="form-control">
+  </div>
+
+  <input type="submit" value="Create" class="btn btn-primary" />
+</form>

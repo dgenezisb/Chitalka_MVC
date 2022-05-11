@@ -1,0 +1,46 @@
+﻿@model Chitalka_v3.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div style="height:300px;background:#D3D3D3;">
+  <div style="width:40%;;height:250px;margin-top:30px;;margin-left:2%;position:absolute;text-align:center;">
+    <img src="@Html.DisplayFor(model => model.ico)" width="400px">
+  </div>
+  <div style="width:40%;margin-top:30px;position:absolute;margin-left:50%;">
+    <ul class="list-group" style="margin:0.5%;">
+      <li class="list-group-item">Имя</li>
+      <li class="list-group-item">@Html.DisplayFor(model => model.usrName)</li>
+    </ul>
+    <ul class="list-group" style="margin:0.5%;">
+      <li class="list-group-item">Пароль</li>
+      <li class="list-group-item">@Html.DisplayFor(model => model.pswrd)</li>
+    </ul>
+    <ul class="list-group" style="margin:0.5%;">
+      <li class="list-group-item">почта</li>
+      <li class="list-group-item">@Html.DisplayFor(model => model.mail)</li>
+    </ul>
+  </div>
+</div>
+<div style="background:#DCDCDC;padding-top:3%;padding-bottom:3%;">
+<form asp-action="AddNote" style="width:60%;margin-left:20%;margin-top:">
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Новая заметка</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" name="note" >
+  <input asp-for="UsrNotes" type="text" class="form-control" id="exampleFormControlInput1" name="id" value="@Model.id" hidden="true">
+  </div>
+
+  <button type="submit" value="AddNote" class="btn btn-primary" style="margin-left:45%;">Добавить</button>
+</form>
+</div>
+<div style="width:70%;margin-left:15%;margin-top:5%;margin-bottom:2%;">
+  <ul class="list-group list-group-flush">
+        @{
+            foreach(var list in Model.UsrNotes)
+            {
+                <li class="list-group-item">@list.Note</li>
+            }
+        }
+  </ul>
+</div>

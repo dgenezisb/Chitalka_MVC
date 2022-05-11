@@ -1,0 +1,44 @@
+﻿@model Chitalka_v3.Models.Books
+
+@{
+    ViewData["Title"] = "Редактирование книги";
+}
+
+<form asp-action="Edit" style="width:80%;margin-top:5%;margin-left:10%;">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Автор</label>
+        <input asp-for="Author.Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Айзек Азимов" name="inpAuthor">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Название</label>
+        <input asp-for="bookName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Основание" name="bookName">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Жанр</label>
+        <input asp-for="Genre.Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="сай-фай" name="inpGenre">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Краткое описание книги</label>
+        <input asp-for="descriprionBook" type="text" class="form-control" id="exampleFormControlInput1" placeholder="мама-мия,это просто чума!!"name="descriprionBook">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Картинка</label>
+        <input asp-for="Image.book" type="text" class="form-control" id="exampleFormControlInput1" placeholder="вставь путь с сервера"name="inpImage">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Год выхода</label>
+        <input asp-for="Centuary.Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1942" name="inpCentuary">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Страна издания</label>
+        <input asp-for="Country.Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Великая Германия!" name="inpCountry">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Сама книга</label>
+        <textarea asp-for="bookInside" class="form-control" id="exampleFormControlTextarea1" rows="3" name="bookInside"></textarea>
+    </div>
+    <button class="btn btn-primary" value="Edit" type="submit">Отредачить книгу</button>
+</form>
+
+
+
