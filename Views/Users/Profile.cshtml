@@ -1,0 +1,24 @@
+﻿
+<h4>Profile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <p>@ViewBag.session</p>
+            <p>@await Component.InvokeAsync("MenuName")</p>
+            <p>
+                @if(ViewBag.auth==1){
+                    <a asp-action="Logout">Log out</a>
+                }
+            </p>
+        </div>
+    </div>
+</div>
+@if(ViewBag.isadmin==1)
+{
+    <div>
+        <a asp-controller="Genres" asp-action="Index" >Genres</a> |
+        <a asp-controller="Countries" asp-action="Index">Countries</a> |
+        <a asp-controller="Centuries" asp-action="Index">Centuries</a>
+    </div>
+}
