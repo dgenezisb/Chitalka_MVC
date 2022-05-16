@@ -1,0 +1,8 @@
+﻿@model IList<ChitalkaMVC.Storage.Entities.Note>
+
+    @foreach(var item in Model){
+    <p>@item.Title</p>
+    <p>@item.Text</p>
+    <a asp-controller="Notes" asp-action="Edit" asp-route-id="@item.Id">Edit |</a>
+    <a asp-controller="Notes" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+}

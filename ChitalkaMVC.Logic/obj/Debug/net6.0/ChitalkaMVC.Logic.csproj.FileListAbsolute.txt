@@ -1,0 +1,15 @@
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\bin\Debug\net6.0\ChitalkaMVC.Logic.deps.json
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\bin\Debug\net6.0\ChitalkaMVC.Logic.dll
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\bin\Debug\net6.0\ChitalkaMVC.Logic.pdb
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\bin\Debug\net6.0\ChitalkaMVC.Storage.dll
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\bin\Debug\net6.0\ChitalkaMVC.Storage.pdb
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.AssemblyInfo.cs
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.csproj.CopyComplete
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.dll
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\refint\ChitalkaMVC.Logic.dll
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ChitalkaMVC.Logic.pdb
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Logic\obj\Debug\net6.0\ref\ChitalkaMVC.Logic.dll

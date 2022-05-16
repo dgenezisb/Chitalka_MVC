@@ -1,0 +1,14 @@
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\bin\Debug\net6.0\ChitalkaMVC.Storage.deps.json
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\bin\Debug\net6.0\ChitalkaMVC.Storage.runtimeconfig.json
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\bin\Debug\net6.0\ChitalkaMVC.Storage.dll
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\bin\Debug\net6.0\ChitalkaMVC.Storage.pdb
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.AssemblyInfo.cs
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.dll
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\refint\ChitalkaMVC.Storage.dll
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.pdb
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ChitalkaMVC.Storage.genruntimeconfig.cache
+C:\Users\admin\source\repos\ChitalkaMVC.Master\ChitalkaMVC\ChitalkaMVC.Storage\obj\Debug\net6.0\ref\ChitalkaMVC.Storage.dll

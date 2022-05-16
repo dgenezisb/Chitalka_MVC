@@ -1,0 +1,8 @@
+﻿@model IList<ChitalkaMVC.Storage.Entities.Author>
+ 
+@{Layout = null;}
+
+    @foreach(var item in Model)
+    {
+        <option value=@item.Id>@item.Name</option>
+    }

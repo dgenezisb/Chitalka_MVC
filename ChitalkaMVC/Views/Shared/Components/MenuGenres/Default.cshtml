@@ -1,0 +1,10 @@
+﻿@model IList<ChitalkaMVC.Storage.Entities.Genre>
+ 
+@{Layout = null;}
+
+<div class="list-group list-group-flush">
+    @foreach(var genre in Model)
+    {
+        <button type="button" class="list-group-item list-group-item-action">@genre.Name</button>
+    }
+</div>

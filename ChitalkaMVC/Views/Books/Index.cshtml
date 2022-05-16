@@ -1,0 +1,67 @@
+﻿@model IList<ChitalkaMVC.Storage.Entities.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Books:</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Title
+            </th>
+            <th>
+               Id
+            </th>
+            <th>
+               Author
+            </th>
+            <th>
+               Genres
+            </th>
+            <th>
+               Century
+            </th>
+            <th>
+               Visibility
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Author.Name
+            </td>
+            <td>
+                    @foreach(var genre in item.Genres)
+                    {
+                        <div>@genre.Name</div>
+                    }
+            </td>
+            <td>
+                @item.Century?.Name
+            </td>
+            <td>
+                @item.Visibility
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
