@@ -9,6 +9,6 @@
 
         public bool isAdmin { get; set; }
         public List<Note>? Notes { get; set; }
-
+        public List<UserBook>? UserBooks { get; set; }
     }
 }

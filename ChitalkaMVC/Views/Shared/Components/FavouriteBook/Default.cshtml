@@ -1,0 +1,13 @@
+﻿@model FavouriteBookViewModel
+
+@if(Model.LoggedIn==true){
+    if (Model.IsFavorite)
+    {
+        <a class="btn btn-danger" asp-controller="UserBooks" asp-action="Delete" asp-route-id="@Model.BookId">Unfavourite</a>
+    }
+    else 
+    {
+        <a class="btn btn-primary" asp-controller="UserBooks" asp-action="Create" asp-route-id="@Model.BookId">Favourite</a>
+    }
+}
+

@@ -1,8 +1,6 @@
-﻿@model IList<ChitalkaMVC.Storage.Entities.Country>
+﻿@model ListCountriesViewModel
  
 @{Layout = null;}
 
-    @foreach(var item in Model)
-    {
-        <option value=@item.Id>@item.Name</option>
-    }
+    @*@Html.DropDownListFor(model=>model.CountryId, Model.Countries)*@
+    @Html.DropDownList(Model.AspFor, Model.Countries)

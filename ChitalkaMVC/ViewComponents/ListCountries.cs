@@ -1,5 +1,7 @@
 ﻿using ChitalkaMVC.Logic.Countries;
+using ChitalkaMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ChitalkaMVC.ViewComponents
 {
@@ -11,10 +13,13 @@ namespace ChitalkaMVC.ViewComponents
         {
             _manager = manager;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string aspFor, int countryId)
         {
             var countries = await _manager.GetAll();
-            return View(countries);
+            var Model = new ListCountriesViewModel();
+            Model.AspFor = aspFor;
+            Model.Countries = new SelectList(countries, "Id", "Name", countryId);
+            return View(Model);
         }
     }
 }

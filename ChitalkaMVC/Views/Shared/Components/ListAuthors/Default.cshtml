@@ -1,8 +1,5 @@
-﻿@model IList<ChitalkaMVC.Storage.Entities.Author>
+﻿@model ListAuthorsViewModel
  
 @{Layout = null;}
 
-    @foreach(var item in Model)
-    {
-        <option value=@item.Id>@item.Name</option>
-    }
+    @Html.DropDownList(Model.AspFor, Model.Authors)

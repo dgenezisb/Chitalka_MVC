@@ -1,4 +1,5 @@
 ﻿using ChitalkaMVC.Logic.Authors;
+using ChitalkaMVC.Models;
 using ChitalkaMVC.Storage.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,15 +31,11 @@ namespace ChitalkaMVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Name", "CountryId")] Author author)
+        public async Task<IActionResult> Create(AuthorViewModel model)
         {
             if (HttpContext.Session.GetInt32("_IsAdmin") != 1)
                 return RedirectToAction(nameof(HomeController.Forbidden), "Home");
-            if (ModelState.IsValid)
-            {
-                await _manager.Create(author);
-                return RedirectToAction(nameof(Index));
-            }
+            await _manager.Create(model.Author, model.Image);
             return RedirectToAction(nameof(Index));
         }
 
@@ -52,24 +49,24 @@ namespace ChitalkaMVC.Controllers
             var item = await _manager.Find((int)id);
             if (item == null)
                 return NotFound();
-            return View(item);
+            return View(new AuthorViewModel { Author = item });
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id", "Name", "CountryId")] Author author)
+        public async Task<IActionResult> Edit(int id, AuthorViewModel model)
         {
             if (HttpContext.Session.GetInt32("_IsAdmin") != 1)
                 return RedirectToAction(nameof(HomeController.Forbidden), "Home");
-            if (id != author.Id)
+            if (id != model.Author.Id)
                 return NotFound();
             if (ModelState.IsValid)
             {
-                if (await _manager.Update(author))
+                if (await _manager.Update(model.Author, model.Image))
                     return RedirectToAction(nameof(Index));
                 else
                     return NotFound();
             }
-            return View(author);
+            return View(model);
         }
 
         [HttpGet]

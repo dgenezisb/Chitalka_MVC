@@ -44,9 +44,12 @@ namespace ChitalkaMVC.Controllers
         [HttpGet]
         public IActionResult Profile()
         {
+            var au = HttpContext.Session.GetInt32("_Auth");
+            if (au != 1)
+                return RedirectToAction("Login");
             ViewBag.session = HttpContext.Session.Id;
             ViewBag.isadmin = HttpContext.Session.GetInt32("_IsAdmin");
-            ViewBag.auth = HttpContext.Session.GetInt32("_Auth");
+            ViewBag.auth = au;
             return View();
         }
 

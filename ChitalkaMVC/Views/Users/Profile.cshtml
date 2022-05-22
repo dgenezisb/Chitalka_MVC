@@ -1,14 +1,17 @@
 ﻿
+@{
+    ViewData["Title"] = "Profile";
+}
 <h4>Profile</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
             <p>@ViewBag.session</p>
-            <p>@await Component.InvokeAsync("MenuName")</p>
+            <h1>@await Component.InvokeAsync("MenuName")</h1>
             <p>
                 @if(ViewBag.auth==1){
-                    <a asp-action="Logout">Log out</a>
+                    <a class="text-danger" asp-action="Logout">Log out</a>
                 }
             </p>
         </div>
@@ -24,6 +27,8 @@
         <a asp-controller="Centuries" asp-action="Index">Centuries</a>
     </div>
 }
-<p>Notes</p>
+<h3>Notes:</h3>
 <a asp-controller="Notes" asp-action="Create">New Note</a>
 @await Component.InvokeAsync("UserNotes")
+<h3>Favourites: </h3>
+@await Component.InvokeAsync("ListFavouriteBooks")

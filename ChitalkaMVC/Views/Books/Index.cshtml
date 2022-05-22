@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                Image
+            </th>
+            <th>
                Title
             </th>
             <th>
@@ -36,6 +39,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                <img style="height: 225px; width: 225px" src=@item.ImagePath asp-append-version="true" />
+            </td>
             <td>
                 @item.Name
             </td>

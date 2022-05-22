@@ -1,4 +1,5 @@
 ﻿using ChitalkaMVC.Logic.Books;
+using ChitalkaMVC.Models;
 using ChitalkaMVC.Storage.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,27 @@ namespace ChitalkaMVC.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            var books = await _manager.GetAll();
+            return View(books);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var item = await _manager.Find((int)id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return View(item);
+        }
+
+        [HttpGet]
         public IActionResult Create()
         {
             if (HttpContext.Session.GetInt32("_IsAdmin") != 1)
@@ -30,16 +52,15 @@ namespace ChitalkaMVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Name", "Description", "Text", "Visibility", 
-            "AuthorId", "CenturyId", "Genres")] Book book, int[] genreId)
+        public async Task<IActionResult> Create(BookViewModel model)
         {
             if (HttpContext.Session.GetInt32("_IsAdmin") != 1)
                 return RedirectToAction(nameof(HomeController.Forbidden), "Home");
-            await _manager.SetGenresById(book, genreId);
+            await _manager.SetGenresById(model.Book, model.GenreIds);
 
             if (ModelState.ErrorCount == 1) 
             {
-                await _manager.Create(book);
+                await _manager.Create(model.Book, model.Image);
                 return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));
@@ -81,26 +102,25 @@ namespace ChitalkaMVC.Controllers
             var item = await _manager.Find((int)id);
             if (item == null)
                 return NotFound();
-            return View(item);
+            return View(new BookViewModel { Book = item });
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id", "Name", "Description", "Text", "Visibility",
-            "AuthorId", "CenturyId", "Genres")] Book book, int[] genreId)
+        public async Task<IActionResult> Edit(int id, BookViewModel model)
         {
             if (HttpContext.Session.GetInt32("_IsAdmin") != 1)
                 return RedirectToAction(nameof(HomeController.Forbidden), "Home");
-            if (id != book.Id)
+            if (id != model.Book.Id)
                 return NotFound();
             if (ModelState.ErrorCount == 1)
             {
-                await _manager.SetGenresById(book, genreId);
-                if (await _manager.Update(book))
+                await _manager.SetGenresById(model.Book, model.GenreIds);
+                if (await _manager.Update(model.Book, model.Image))
                     return RedirectToAction(nameof(Index));
                 else
                     return NotFound();
             }
-            return View(book);
+            return View(model);
         }
     }
 }

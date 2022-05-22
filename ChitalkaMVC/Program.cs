@@ -7,12 +7,13 @@ using ChitalkaMVC.Logic.Genres;
 using ChitalkaMVC.Logic.Users;
 using ChitalkaMVC.Logic.Authors;
 using ChitalkaMVC.Logic.Notes;
+using ChitalkaMVC.Logic.UserBooks;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 // Add services to the container.
-services.AddControllersWithViews();
+services.AddControllersWithViews().AddRazorRuntimeCompilation();//udolit potom
 services.AddScoped<ICountryManager, CountryManager>();
 services.AddScoped<ICenturyManager, CenturyManager>();
 services.AddScoped<IUserManager, UserManager>();
@@ -20,6 +21,7 @@ services.AddScoped<IGenreManager, GenreManager>();
 services.AddScoped<IAuthorManager, AuthorManager>();
 services.AddScoped<INoteManager, NoteManager>();
 services.AddScoped<IBookManager, BookManager>();
+services.AddScoped<IUserBookManager, UserBookManager>();
 
 services.AddDistributedMemoryCache();
 

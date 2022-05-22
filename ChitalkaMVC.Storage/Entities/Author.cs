@@ -9,5 +9,7 @@
         public int CountryId { get; set; }
         [ForeignKey(nameof(CountryId))]
         public virtual Country? Country { get; set; }
+        [Required]
+        public string ImagePath { get; set; }
     }
 }

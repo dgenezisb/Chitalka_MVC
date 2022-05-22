@@ -1,0 +1,28 @@
+﻿@model ChitalkaMVC.Storage.Entities.Book
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+<div>
+    <img src=@Model.ImagePath asp-append-version="true" style="width:50%;height:70%;"/>
+    <h5>Author: @Model.Author.Name</h5>
+    <h5>
+        Genres:
+        @foreach(var genre in Model.Genres)
+        {
+            <d>
+                 @genre.Name
+            </d>
+        }
+    </h5>
+    <p>
+        @Model.Description
+    </p>
+    <h5>Sample Text: </h5>
+    <p>
+        @Model.Text
+    </p>
+    @await Component.InvokeAsync("FavouriteBook", Model.Id)
+</div>

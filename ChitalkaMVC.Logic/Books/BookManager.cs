@@ -1,17 +1,52 @@
-﻿namespace ChitalkaMVC.Logic.Books
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+
+namespace ChitalkaMVC.Logic.Books
 {
     public class BookManager : IBookManager
     {
         private readonly ChitalkaContext _context;
-        public BookManager(ChitalkaContext context)
+        private readonly IWebHostEnvironment _hostEnvironment;
+        private static readonly string _defaultImage = @"\Images\defaultbook.png";
+        public BookManager(ChitalkaContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _hostEnvironment = webHostEnvironment;
         }
 
-        public async Task Create(Book book)
+        private async Task<string> CreateImage(IFormFile? image)
         {
-            _context.Books.Add(book);
+            string root = _hostEnvironment.WebRootPath;
+            string path;
+            if (image != null)
+            {
+                string extension = Path.GetExtension(image.FileName);
+                string filename = Path.GetFileNameWithoutExtension(image.FileName) + DateTime.Now.ToString("yymmssfff") + extension;
+                path = Path.Combine("\\Images\\Books\\", filename);
+                var filepath = Path.Combine(root + "\\Images\\Books\\", filename);
+                using (var filestream = new FileStream(filepath, FileMode.Create))
+                {
+                    await image.CopyToAsync(filestream);
+                }
+            }
+            else
+                path = _defaultImage;
+            return path;
+        }
+        private void DeleteImage(string imagepath)
+        {
+            if (imagepath == _defaultImage)
+                return;
+            var root = _hostEnvironment.WebRootPath;
+            imagepath = root + imagepath;
+            if (System.IO.File.Exists(imagepath))
+                System.IO.File.Delete(imagepath);
+        }
 
+        public async Task Create(Book book, IFormFile? image)
+        {
+            book.ImagePath = await CreateImage(image);
+            _context.Books.Add(book);
             await _context.SaveChangesAsync();
         }
 
@@ -37,12 +72,14 @@
             var book = _context.Books.FirstOrDefault(book => book.Id == id);
             if (book != null)
             {
+                if (book.ImagePath != _defaultImage)
+                    DeleteImage(book.ImagePath);
                 _context.Books.Remove(book);
                 await _context.SaveChangesAsync();
             }
         }
 
-        public async Task<bool> Update(Book book)
+        public async Task<bool> Update(Book book, IFormFile? image)
         {
             try
             {
@@ -70,7 +107,12 @@
                         existingBook.Genres.Remove(genre);
                     foreach (var genre in book.Genres)
                         existingBook.Genres.Add(genre);
-
+                    if (image != null)
+                    {
+                        if (book.ImagePath != _defaultImage)
+                            DeleteImage(book.ImagePath);
+                        book.ImagePath = await CreateImage(image);
+                    }
                     await _context.SaveChangesAsync();
                 }
             }

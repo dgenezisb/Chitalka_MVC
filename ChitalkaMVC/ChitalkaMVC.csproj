@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.4" Condition="'$(Configuration)' == 'Debug'" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,6 +17,11 @@
   <ItemGroup>
     <ProjectReference Include="..\ChitalkaMVC.Logic\ChitalkaMVC.Logic.csproj" />
     <ProjectReference Include="..\ChitalkaMVC.Storage\ChitalkaMVC.Storage.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Authors\" />
+    <Folder Include="wwwroot\Images\Books\" />
   </ItemGroup>
 
 </Project>

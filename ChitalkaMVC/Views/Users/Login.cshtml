@@ -1,4 +1,7 @@
 ﻿@model ChitalkaMVC.Models.UserViewModel
+@{
+    ViewData["Title"] = "Log In";
+}
 <h4>User</h4>
 <hr />
 <div class="row">
@@ -7,12 +10,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="User.Username" class="control-label"></label>
-                <input asp-for="User.Username" class="form-control" />
+                <input required asp-for="User.Username" class="form-control" />
                 <span asp-validation-for="User.Username" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="User.Password" class="control-label"></label>
-                <input asp-for="User.Password" class="form-control" />
+                <input required asp-for="User.Password" class="form-control" />
                 <span asp-validation-for="User.Password" class="text-danger"></span>
             </div>
             @*<div class="form-group form-check">
@@ -24,7 +27,7 @@
                 <label class="control-label">@Model.Result</label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
+                <input type="submit" value="Log In" class="btn btn-primary" />
             </div>
         </form>
     </div>
