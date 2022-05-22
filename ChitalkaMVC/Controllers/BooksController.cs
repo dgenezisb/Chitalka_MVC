@@ -27,7 +27,15 @@ namespace ChitalkaMVC.Controllers
         public async Task<IActionResult> List()
         {
             var books = await _manager.GetAll();
-            return View(books);
+            return View(new BooksListViewModel { Books = books });
+        }
+        [HttpPost]
+        public async Task<IActionResult> List(BookFilterOptions options)
+        {
+            
+            var books = await _manager.GetAll();
+            books = books.Where(book => BookFilter.Filter(options, book)).ToList();
+            return View(new BooksListViewModel { Options = options, Books = books });
         }
         [HttpGet]
         public async Task<IActionResult> Details(int? id)

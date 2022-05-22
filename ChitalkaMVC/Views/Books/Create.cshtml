@@ -8,7 +8,7 @@
             <div class="form-group">
                 @await Component.InvokeAsync("ListAuthors", new{aspFor="Book.AuthorId", authorId=0})
                 @await Component.InvokeAsync("ListCenturies", new{aspFor="Book.CenturyId", centuryId=0})
-                 @await Component.InvokeAsync("ListGenres", null)
+                 @await Component.InvokeAsync("ListGenres", new{aspFor="GenreIds", selectedGenres=new int[]{0}})
                 <label asp-for="Book.Name" class="control-label"></label>
                 <input required asp-for="Book.Name" class="form-control" />
                 <span asp-validation-for="Book.Name" class="text-danger"></span>

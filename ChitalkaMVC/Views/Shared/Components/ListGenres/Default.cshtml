@@ -6,4 +6,4 @@
     {
         <option value=@item.Id>@item.Name</option>
     }*@
-    @Html.ListBox("GenreIds",(MultiSelectList)ViewBag.Genres)
+    @Html.ListBox((string)ViewBag.AspFor,(MultiSelectList)ViewBag.Genres)

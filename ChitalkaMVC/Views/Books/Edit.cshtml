@@ -15,7 +15,7 @@
             <div class="form-group">
                @await Component.InvokeAsync("ListAuthors", new{aspFor="Book.AuthorId", authorId=Model.Book.AuthorId})
                 @await Component.InvokeAsync("ListCenturies", new{aspFor="Book.CenturyId", centuryId=Model.Book.CenturyId})
-                @await Component.InvokeAsync("ListGenres", Model.Book.Genres)
+                @await Component.InvokeAsync("ListGenres", new{aspFor="GenreIds", selectedGenres=Model.Book.Genres.Select(u=>u.Id)})
                 <label asp-for="Book.Name" class="control-label"></label>
                 <input required asp-for="Book.Name" class="form-control" />
                 <span asp-validation-for="Book.Name" class="text-danger"></span>

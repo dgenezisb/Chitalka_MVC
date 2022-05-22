@@ -13,18 +13,14 @@ namespace ChitalkaMVC.ViewComponents
         {
             _manager = manager;
         }
-        public async Task<IViewComponentResult> InvokeAsync(List<Genre> selectedGenres)
+        public async Task<IViewComponentResult> InvokeAsync(string aspFor, IEnumerable<int> selectedGenres)
         {
             
             var genres = await _manager.GetAll();
             int[] ids = null;
-            if (selectedGenres != null)
-            {
-                ids = new int[selectedGenres.Count];
-                for (int i = 0; i < ids.Length; i++)
-                    ids[i] = selectedGenres[i].Id;
-            }
-
+            if (selectedGenres.Any())
+                ids = selectedGenres.ToArray();
+            ViewBag.AspFor = aspFor;
             ViewBag.Genres = new MultiSelectList(genres, "Id", "Name", ids);
             return View();
         }
