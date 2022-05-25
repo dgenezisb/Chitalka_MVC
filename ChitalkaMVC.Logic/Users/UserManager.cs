@@ -21,6 +21,10 @@
             return false;
         }
 
+        public async Task<User> Get(string username)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+        }
 
         public async Task<(bool, bool)> Find(User Nuser)
         {
@@ -34,6 +38,32 @@
             if(user.isAdmin)
                 authRes.admin = true;
             return authRes;
+        }
+        public async Task<User> GetByMail(string mail)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Mail == mail);
+        }
+
+        public async Task<bool> Update(User user)
+        {
+            try
+            {
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                var item = Find(user);
+                if (item == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return true;
         }
 
         public async Task Delete(string username)

@@ -1,5 +1,4 @@
 ﻿using ChitalkaMVC.Logic.Genres;
-using ChitalkaMVC.Storage.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -7,7 +6,7 @@ namespace ChitalkaMVC.ViewComponents
 {
     public class ListGenres : ViewComponent
     {
-        private IGenreManager _manager;
+        private readonly IGenreManager _manager;
 
         public ListGenres(IGenreManager manager)
         {

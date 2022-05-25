@@ -7,7 +7,7 @@
 <h2>@Model.Name</h2>
 <div>
     <img src=@Model.ImagePath asp-append-version="true" style="width:50%;height:70%;"/>
-    <h5>Author: @Model.Author.Name</h5>
+    <h5>Author: <a asp-controller="Authors" asp-action="Details" asp-route-id="@Model.AuthorId" style="text-decoration:none;">@Model.Author.Name</a></h5>
     <h5>
         Genres:
         @foreach(var genre in Model.Genres)

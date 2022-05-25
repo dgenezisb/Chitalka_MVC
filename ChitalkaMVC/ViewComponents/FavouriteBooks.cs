@@ -6,7 +6,7 @@ namespace ChitalkaMVC.ViewComponents
 {
     public class FavouriteBook : ViewComponent
     {
-        private IUserBookManager _manager;
+        private readonly IUserBookManager _manager;
 
         public FavouriteBook(IUserBookManager manager)
         {

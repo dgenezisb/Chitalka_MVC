@@ -5,7 +5,7 @@ namespace ChitalkaMVC.ViewComponents
 {
     public class UserNotes : ViewComponent
     {
-        private INoteManager _manager;
+        private readonly INoteManager _manager;
 
         public UserNotes(INoteManager manager)
         {

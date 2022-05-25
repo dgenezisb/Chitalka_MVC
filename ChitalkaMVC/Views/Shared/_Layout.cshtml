@@ -16,32 +16,28 @@
     <link rel="stylesheet" href="~/ChitalkaMVC.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel" style="width:20%;">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel" style="width:370px;">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Меню Читалки</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
         </div>
         <div class="offcanvas-body">
-            <div>
-                <h1><a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Profile">@await Component.InvokeAsync("MenuName")<br></a></h1>
-            </div>
-           <div class="list-group list-group-flush">
-                <button type="button" class="list-group-item list-group-item-action">Онгоинги</button>
-                <button type="button" class="list-group-item list-group-item-action">Что выйдет</button>
-                <button type="button" class="list-group-item list-group-item-action">Завершенные</button>
-                <button type="button" class="list-group-item list-group-item-action">Переведено</button>
-                <button type="button" class="list-group-item list-group-item-action">Не переведено</button>
+            <div class="row">
+                <div class="col-5"><a class="h5" style="text-decoration:none" asp-controller="Books" asp-action="List">Books</a></div>
+                <div class="col-2"><a class="h5" style="text-decoration:none" asp-controller="Authors" asp-action="List">Authors</a></div>
+                
+                <h2><a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Profile">@await Component.InvokeAsync("MenuName")<br></a></h2>
             </div>
                 Жанры
-                <div style="overflow:scroll;height:400px;">
+                <div style="overflow-y:scroll;height:300px;width:85%;">
                     @await Component.InvokeAsync("MenuGenres")
                 </div>
                 Века
-                <div style="overflow:scroll;height:400px;">
+                <div style="overflow-y:scroll;height:300px;width:85%;">
                     @await Component.InvokeAsync("MenuCenturies")
                 </div>
                 Страны
-                <div style="overflow:scroll;height:400px;">
+                <div style="overflow-y:scroll;height:300px;width:85%;">
                     @await Component.InvokeAsync("MenuCountries")
                 </div>
 

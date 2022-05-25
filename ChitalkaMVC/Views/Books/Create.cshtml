@@ -9,14 +9,15 @@
                 @await Component.InvokeAsync("ListAuthors", new{aspFor="Book.AuthorId", authorId=0})
                 @await Component.InvokeAsync("ListCenturies", new{aspFor="Book.CenturyId", centuryId=0})
                  @await Component.InvokeAsync("ListGenres", new{aspFor="GenreIds", selectedGenres=new int[]{0}})
+                 <input hidden asp-for="Book.ImagePath" value="placeholder" class="form-control" />
                 <label asp-for="Book.Name" class="control-label"></label>
                 <input required asp-for="Book.Name" class="form-control" />
                 <span asp-validation-for="Book.Name" class="text-danger"></span>
                 <label asp-for="Book.Description" class="control-label"></label>
-                <input required asp-for="Book.Description" class="form-control" />
+                <textarea required style="resize: none;" asp-for="Book.Description" class="form-control"></textarea>
                 <span asp-validation-for="Book.Description" class="text-danger"></span>
                 <label asp-for="Book.Text" class="control-label"></label>
-                <input required asp-for="Book.Text" class="form-control" />
+                <textarea required rows="10" style="resize: none;" asp-for="Book.Text" class="form-control"></textarea>
                 <span asp-validation-for="Book.Text" class="text-danger"></span>
                 <div class="form-group form-check">
                 <label class="form-check-label">

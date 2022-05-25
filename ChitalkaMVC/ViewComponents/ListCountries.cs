@@ -7,7 +7,7 @@ namespace ChitalkaMVC.ViewComponents
 {
     public class ListCountries : ViewComponent
     {
-        private ICountryManager _manager;
+        private readonly ICountryManager _manager;
 
         public ListCountries(ICountryManager manager)
         {

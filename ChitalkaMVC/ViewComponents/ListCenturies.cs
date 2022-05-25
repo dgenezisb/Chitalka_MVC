@@ -7,7 +7,7 @@ namespace ChitalkaMVC.ViewComponents
 {
     public class ListCenturies : ViewComponent
     {
-        private ICenturyManager _manager;
+        private readonly ICenturyManager _manager;
 
         public ListCenturies(ICenturyManager manager)
         {

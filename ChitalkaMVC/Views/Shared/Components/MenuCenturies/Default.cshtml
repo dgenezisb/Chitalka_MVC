@@ -5,15 +5,6 @@
 <div class="list-group list-group-flush">
     @foreach(var cent in Model)
     {
-        <button type="button" class="list-group-item list-group-item-action">@cent.Name</button>
+        <a type="button" href="/books/list?centuryId=@cent.Id" class="list-group-item list-group-item-action">@cent.Name</a>
     }
-    @*<button type="button" class="list-group-item list-group-item-action">XIII</button>
-    <button type="button" class="list-group-item list-group-item-action">XIV</button>
-    <button type="button" class="list-group-item list-group-item-action">XV</button>
-    <button type="button" class="list-group-item list-group-item-action">XVI</button>
-    <button type="button" class="list-group-item list-group-item-action">XVII</button>
-    <button type="button" class="list-group-item list-group-item-action">XVIII</button>
-    <button type="button" class="list-group-item list-group-item-action">XIX</button>
-    <button type="button" class="list-group-item list-group-item-action">XX</button>
-    <button type="button" class="list-group-item list-group-item-action">XXI</button>*@
 </div>

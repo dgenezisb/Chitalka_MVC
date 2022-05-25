@@ -6,8 +6,9 @@
         <div class="card" style="width: 220px;margin:1.5%;height:300px;">
             <img src=@item.Book.ImagePath class="card-img-top" style="width: 100%;height:65%;" asp-append-version="true">
             <div class="card-body">
-                <a asp-controller="Books" asp-action="Details" asp-route-id="@item.Book.Id" class="nav-link">@Html.DisplayFor(modelItem => item.Book.Name)</a>
-                <p class="card-text">by @Html.DisplayFor(modelItem => item.Book.Author.Name)</p>
+                <a asp-controller="Books" asp-action="Details" asp-route-id="@item.Book.Id" style="text-decoration:none;">@Html.DisplayFor(modelItem => item.Book.Name)</a>
+                by 
+                <a asp-controller="Authors" asp-action="Details" asp-route-id="@item.Book.AuthorId" style="text-decoration:none;">@Html.DisplayFor(modelItem => item.Book.Author.Name)</a>
             </div>
         </div>
     }

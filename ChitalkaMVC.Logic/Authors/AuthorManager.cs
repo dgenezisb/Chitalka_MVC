@@ -55,6 +55,11 @@ namespace ChitalkaMVC.Logic.Authors
             return await _context.Authors.Include(u => u.Country).FirstOrDefaultAsync(item => item.Id == id);
         }
 
+        public async Task<Author> GetFull(int id)
+        {
+            return await _context.Authors.Include(u => u.Books).ThenInclude(b=>b.Genres).Include(u => u.Country).FirstOrDefaultAsync(item => item.Id == id);
+        }
+
         public async Task<bool> Update(Author author, IFormFile? image)
         {
             try

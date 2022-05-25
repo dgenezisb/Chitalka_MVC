@@ -187,6 +187,9 @@ namespace ChitalkaMVC.Storage.Migrations
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -243,7 +246,7 @@ namespace ChitalkaMVC.Storage.Migrations
             modelBuilder.Entity("ChitalkaMVC.Storage.Entities.Book", b =>
                 {
                     b.HasOne("ChitalkaMVC.Storage.Entities.Author", "Author")
-                        .WithMany()
+                        .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -287,6 +290,11 @@ namespace ChitalkaMVC.Storage.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ChitalkaMVC.Storage.Entities.Author", b =>
+                {
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("ChitalkaMVC.Storage.Entities.Book", b =>

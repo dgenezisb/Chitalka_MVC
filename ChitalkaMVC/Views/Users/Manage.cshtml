@@ -1,0 +1,17 @@
+﻿@model ChitalkaMVC.Storage.Entities.User
+@{
+    ViewData["Title"] = "Profile";
+}
+<h5>Username: @Model.Username</h5>
+<h5>Mail: 
+@{
+    if (Model.Mail == null)
+    {
+        <a asp-action="Mail" class="btn btn-primary">Validate Mail</a>
+    }
+    else
+    {
+        @Model.Mail  <a asp-action="Mail" class="btn btn-primary">Change Mail</a>
+    }
+}</h5>
+<a asp-action="Password" class="btn btn-danger">Change Password</a>

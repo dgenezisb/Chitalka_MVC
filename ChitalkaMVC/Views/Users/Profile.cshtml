@@ -7,13 +7,17 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <p>@ViewBag.session</p>
             <h1>@await Component.InvokeAsync("MenuName")</h1>
             <p>
                 @if(ViewBag.auth==1){
                     <a class="text-danger" asp-action="Logout">Log out</a>
                 }
             </p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <a class="btn btn-danger" asp-action="Manage">Manage</a>
         </div>
     </div>
 </div>

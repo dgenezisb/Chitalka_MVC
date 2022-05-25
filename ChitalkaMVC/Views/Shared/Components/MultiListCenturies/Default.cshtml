@@ -1,0 +1,9 @@
+﻿@*@model IList<ChitalkaMVC.Storage.Entities.Genre>*@
+ 
+@{Layout = null;}
+
+    @*@foreach(var item in Model)
+    {
+        <option value=@item.Id>@item.Name</option>
+    }*@
+    @Html.ListBox((string)ViewBag.AspFor,(MultiSelectList)ViewBag.Items)

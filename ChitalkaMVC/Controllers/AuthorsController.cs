@@ -24,6 +24,38 @@ namespace ChitalkaMVC.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> List(int? countryId)
+        {
+            var authors = await _manager.GetAll();
+            if (countryId != null)
+                authors = authors.Where(a => a.CountryId == countryId).ToList();
+            return View(new AuthorListViewModel { Options = new AuthorFilterOptions(), Authors = authors });
+        }
+        [HttpPost]
+        public async Task<IActionResult> List(AuthorFilterOptions options)
+        {
+
+            var authors = await _manager.GetAll();
+            authors = authors.Where(author => AuthorFilter.Filter(options, author)).ToList();
+            return View(new AuthorListViewModel { Options = options, Authors = authors });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var item = await _manager.GetFull((int)id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return View(item);
+        }
+
+        [HttpGet]
         public IActionResult Create()
         {
             if (HttpContext.Session.GetInt32("_IsAdmin") != 1)

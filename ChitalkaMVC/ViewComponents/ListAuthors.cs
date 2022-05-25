@@ -7,7 +7,7 @@ namespace ChitalkaMVC.ViewComponents
 {
     public class ListAuthors : ViewComponent
     {
-        private IAuthorManager _manager;
+        private readonly IAuthorManager _manager;
 
         public ListAuthors(IAuthorManager manager)
         {

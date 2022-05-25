@@ -5,7 +5,7 @@ namespace ChitalkaMVC.ViewComponents
 {
     public class MenuGenres : ViewComponent
     {
-        private IGenreManager _manager;
+        private readonly IGenreManager _manager;
 
         public MenuGenres(IGenreManager manager)
         {

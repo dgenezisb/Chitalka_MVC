@@ -50,8 +50,10 @@ namespace ChitalkaMVC.Logic.Books
             await _context.SaveChangesAsync();
         }
 
-        public async Task SetGenresById(Book book, int[] ids)
+        public async Task SetGenresById(Book book, int[]? ids)
         {
+            if (ids == null)
+                return;
             book.Genres = new List<Genre> { };
             foreach(int id in ids)
             {
@@ -109,9 +111,9 @@ namespace ChitalkaMVC.Logic.Books
                         existingBook.Genres.Add(genre);
                     if (image != null)
                     {
-                        if (book.ImagePath != _defaultImage)
-                            DeleteImage(book.ImagePath);
-                        book.ImagePath = await CreateImage(image);
+                        if (existingBook.ImagePath != _defaultImage)
+                            DeleteImage(existingBook.ImagePath);
+                        existingBook.ImagePath = await CreateImage(image);
                     }
                     await _context.SaveChangesAsync();
                 }

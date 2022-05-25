@@ -24,10 +24,14 @@ namespace ChitalkaMVC.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(int? centuryId, int? genreId)
         {
             var books = await _manager.GetAll();
-            return View(new BooksListViewModel { Books = books });
+            if (centuryId != null)
+                books = books.Where(x => x.CenturyId == centuryId).ToList();
+            if (genreId != null)
+                books = books.Where(x => x.Genres.Select(b => b.Id).ToArray().Contains((int)genreId)).ToList();
+            return View(new BooksListViewModel { Options=new BookFilterOptions(), Books = books });
         }
         [HttpPost]
         public async Task<IActionResult> List(BookFilterOptions options)
@@ -66,7 +70,7 @@ namespace ChitalkaMVC.Controllers
                 return RedirectToAction(nameof(HomeController.Forbidden), "Home");
             await _manager.SetGenresById(model.Book, model.GenreIds);
 
-            if (ModelState.ErrorCount == 1) 
+            if (ModelState.IsValid) 
             {
                 await _manager.Create(model.Book, model.Image);
                 return RedirectToAction(nameof(Index));
@@ -120,7 +124,7 @@ namespace ChitalkaMVC.Controllers
                 return RedirectToAction(nameof(HomeController.Forbidden), "Home");
             if (id != model.Book.Id)
                 return NotFound();
-            if (ModelState.ErrorCount == 1)
+            if (ModelState.IsValid)
             {
                 await _manager.SetGenresById(model.Book, model.GenreIds);
                 if (await _manager.Update(model.Book, model.Image))
@@ -128,7 +132,7 @@ namespace ChitalkaMVC.Controllers
                 else
                     return NotFound();
             }
-            return View(model);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

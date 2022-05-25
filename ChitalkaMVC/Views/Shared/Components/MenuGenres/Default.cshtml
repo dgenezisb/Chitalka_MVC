@@ -5,6 +5,6 @@
 <div class="list-group list-group-flush">
     @foreach(var genre in Model)
     {
-        <button type="button" class="list-group-item list-group-item-action">@genre.Name</button>
+        <a type="button" href="/books/list?genreId=@genre.Id" class="list-group-item list-group-item-action">@genre.Name</a>
     }
 </div>

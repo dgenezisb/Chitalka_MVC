@@ -8,39 +8,44 @@
         <input asp-for="Options.AuthorName" placeholder="Search by author" />
         <input asp-for="Options.Title" placeholder="Search by title" />
         @await Component.InvokeAsync("ListGenres", new{aspFor="Options.GenreIds", selectedGenres=new int[]{0}})
+        @await Component.InvokeAsync("MultiListCenturies", new{aspFor="Options.CenturyIds", selectedItems=new int[]{0}})
        <input type="submit" value="Search" class="btn btn-primary" />
     </form>
 </div>
 
 <div class="row" style="margin-left:6%;margin-right:0%;margin-top:2%;">
-@{
+    @{
 
-    foreach (var item in Model.Books)
-    {
-        <div class="card" style="width: 20%;margin:1.5%;height:400px;">
-            <img src=@item.ImagePath class="card-img-top" style="width: 100%;height:65%;" asp-append-version="true">
-            <div class="card-body">
-                <a asp-action="Details" asp-route-id="@item.Id" class="nav-link">@Html.DisplayFor(modelItem => item.Name)</a>
-                <p class="card-text">by @Html.DisplayFor(modelItem => item.Author.Name)</p>
-                    @{
-                        int i;
-                        for(i=0;i<4&&i<item.Genres.Count;i++)
-                        {
-                            <d>
-                            @item.Genres[i].Name
-                            </d>
-                        }
-                        if (i < item.Genres.Count)
-                        {
-                            <d>
-                            ...
-                            </d>
-                        }
-                    } 
-            </div>
-        </div>
+        foreach (var item in Model.Books)
+        {
+            if (item.Visibility == true)
+            {
+                <div class="card" style="width: 20%;margin:1.5%;height:400px;">
+                    <img src=@item.ImagePath class="card-img-top" style="width: 100%;height:65%;" asp-append-version="true">
+                    <div class="card-body">
+                        <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;">@Html.DisplayFor(modelItem => item.Name)</a>
+                        by
+                        <a asp-controller="Authors" asp-action="Details" asp-route-id="@item.AuthorId" style="text-decoration:none;">@Html.DisplayFor(modelItem => item.Author.Name)</a>
+                        <br/>Genres:
+                        @{
+                            int i;
+                            for (i = 0; i < 4 && i < item.Genres.Count; i++)
+                            {
+                                <d>
+                                    @item.Genres[i].Name
+                                </d>
+                            }
+                            if (i < item.Genres.Count)
+                            {
+                                <d>
+                                    ...
+                                </d>
+                            }
+                        } 
+                    </div>
+                </div>
+            }
+        }
     }
-
-}
 
 </div>  

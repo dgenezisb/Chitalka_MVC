@@ -11,5 +11,6 @@
         public virtual Country? Country { get; set; }
         [Required]
         public string ImagePath { get; set; }
+        public List<Book>? Books { get; set; }
     }
 }
