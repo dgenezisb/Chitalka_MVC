@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 // Add services to the container.
-services.AddControllersWithViews().AddRazorRuntimeCompilation();//udolit potom
+services.AddControllersWithViews();//.AddRazorRuntimeCompilation();
 services.AddScoped<ICountryManager, CountryManager>();
 services.AddScoped<ICenturyManager, CenturyManager>();
 services.AddScoped<IUserManager, UserManager>();
