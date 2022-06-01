@@ -2,37 +2,33 @@
 @{
     ViewData["Title"] = "Profile";
 }
-<h4>Profile</h4>
+<h3 style="text-align:center">Profile</h3>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group">
-            <h1>@await Component.InvokeAsync("MenuName")</h1>
-            <p>
-                @if(ViewBag.auth==1){
-                    <a class="text-danger" asp-action="Logout">Log out</a>
-                }
-            </p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <a class="btn btn-danger" asp-action="Manage">Manage</a>
-        </div>
-    </div>
+<h1 style="text-align:center;margin-top:5%;">Hello,&nbsp;@await Component.InvokeAsync("MenuName")!</h1>
+<div style="margin-left:35%;margin-right:35%;margin-top:2%;">
+    <a style="margin-left:35%;" class="btn btn-info" asp-action="Manage">Manage</a>
+    <a style="margin-left:2%;" class="btn btn-danger" asp-action="Logout">Log out</a>      
 </div>
+<hr /> 
 @if(ViewBag.isadmin==1)
 {
-    <div>
-        <a asp-controller="Genres" asp-action="Index" >Genres</a> |
-        <a asp-controller="Countries" asp-action="Index">Countries</a> |
-        <a asp-controller="Authors" asp-action="Index">Authors</a> |
-        <a asp-controller="Books" asp-action="Index">Books</a> |
-        <a asp-controller="Centuries" asp-action="Index">Centuries</a>
+    <div style="margin-left:38%;margin-right:35%;margin-top:2%;" >
+        <a asp-controller="Genres" asp-action="Index" class="btn btn-outline-warning">Genres</a> 
+        <a style="margin-left:2%;" asp-controller="Countries" asp-action="Index" class="btn btn-outline-warning">Countries</a> 
+        <a style="margin-left:2%;" asp-controller="Authors" asp-action="Index" class="btn btn-outline-warning">Authors</a> 
+        <a style="margin-left:2%;" asp-controller="Books" asp-action="Index" class="btn btn-outline-warning">Books</a> 
+        <a style="margin-left:2%;" asp-controller="Centuries" asp-action="Index" class="btn btn-outline-warning">Centuries</a>
     </div>
+    <hr />      
 }
-<h3>Notes:</h3>
-<a asp-controller="Notes" asp-action="Create">New Note</a>
+    <h3 style="text-align:center">Notes:</h3>
+    <a class="btn btn-primary" style="margin:auto;display:block;width:200px" asp-controller="Notes" asp-action="Create">New Note</a>
+
+
 @await Component.InvokeAsync("UserNotes")
-<h3>Favourites: </h3>
+<br />
+<br />
+<br />
+<hr />    
+<h3 style="text-align:center">Favourites: </h3>
 @await Component.InvokeAsync("ListFavouriteBooks")

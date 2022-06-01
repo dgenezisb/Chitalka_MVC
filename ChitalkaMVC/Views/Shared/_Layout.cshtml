@@ -18,25 +18,27 @@
 <body>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel" style="width:370px;">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Меню Читалки</h5>
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Main menu</h5>
+            
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
         </div>
         <div class="offcanvas-body">
+            <div class="list-group">
+            <a class="list-group-item list-group-item-action" asp-controller="Books" asp-action="List">Books</a>
+            <a class="list-group-item list-group-item-action" asp-controller="Authors" asp-action="List">Authors</a>
+            </div>
             <div class="row">
-                <div class="col-5"><a class="h5" style="text-decoration:none" asp-controller="Books" asp-action="List">Books</a></div>
-                <div class="col-2"><a class="h5" style="text-decoration:none" asp-controller="Authors" asp-action="List">Authors</a></div>
-                
                 <h2><a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Profile">@await Component.InvokeAsync("MenuName")<br></a></h2>
             </div>
-                Жанры
+                Genres
                 <div style="overflow-y:scroll;height:300px;width:85%;">
                     @await Component.InvokeAsync("MenuGenres")
                 </div>
-                Века
+                Centuries
                 <div style="overflow-y:scroll;height:300px;width:85%;">
                     @await Component.InvokeAsync("MenuCenturies")
                 </div>
-                Страны
+                Countries
                 <div style="overflow-y:scroll;height:300px;width:85%;">
                     @await Component.InvokeAsync("MenuCountries")
                 </div>
@@ -71,11 +73,9 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    
             @RenderBody()
-        </main>
-    </div>
+       
 
     <footer class="border-top footer text-muted">
         <div class="container">

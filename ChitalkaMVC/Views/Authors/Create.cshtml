@@ -1,24 +1,35 @@
 ﻿@model ChitalkaMVC.Models.AuthorViewModel
-<h4>New Author</h4>
+<h4 style="text-align:center">New Author</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div>
+    <div style="width:50%;margin-left:25%;margin-top:3%;">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                @await Component.InvokeAsync("ListCountries", new { aspFor = "Author.CountryId", countryId = 0 })
+                 <div style="text-align:center">
+                     @await Component.InvokeAsync("ListCountries", new { aspFor = "Author.CountryId", countryId = 0 })
+                 </div>
+                
+                <br />
                 <label asp-for="Author.Name" class="control-label"></label>
                 <input required asp-for="Author.Name" class="form-control" />
                 <span asp-validation-for="Author.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <br />
                 <label asp-for="Image" class="control-label"></label>
                 <input asp-for="Image" accept="image/*" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-left:45%;margin-top:5%;">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
+<style>
+select{
+    width:200px;
+}
+    
+</style>

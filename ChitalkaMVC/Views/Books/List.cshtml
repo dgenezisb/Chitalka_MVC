@@ -3,15 +3,45 @@
 @{
     ViewData["Title"] = "Books";
 }
-<div class="row" style="border-bottom: 2px solid rgba(0, 0, 0, 0.125);">
+
+<button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-left:45%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!Search!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">!Search!</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+  </div>
+  <div class="offcanvas-body">
+   <form asp-action="List">
+        <input asp-for="Options.AuthorName" placeholder="Search by author" style="width:80%;margin-left:10%;margin-top:5%;"/>
+        <input asp-for="Options.Title" placeholder="Search by title" style="width:80%;margin-left:10%;margin-top:5%;"/>
+        <label>Genres:</label>
+        <div style="margin-left:22%;margin-top:5%;">
+             @await Component.InvokeAsync("ListGenres", new{aspFor="Options.GenreIds", selectedGenres=new int[]{0}})
+        </div>
+        <label>Centuries:</label>
+        <div style="margin-left:22%;margin-top:5%;">
+            @await Component.InvokeAsync("MultiListCenturies", new{aspFor="Options.CenturyIds", selectedItems=new int[]{0}})
+        </div> 
+       <input type="submit" value="Search" class="btn btn-primary" style="margin-left:40%;margin-top:10%;"/>
+    </form>
+  </div>
+</div>
+
+<!--<div class="row" style="border-bottom: 2px solid rgba(0, 0, 0, 0.125);">
     <form asp-action="List">
         <input asp-for="Options.AuthorName" placeholder="Search by author" />
         <input asp-for="Options.Title" placeholder="Search by title" />
+       
         @await Component.InvokeAsync("ListGenres", new{aspFor="Options.GenreIds", selectedGenres=new int[]{0}})
-        @await Component.InvokeAsync("MultiListCenturies", new{aspFor="Options.CenturyIds", selectedItems=new int[]{0}})
+        
+            @await Component.InvokeAsync("MultiListCenturies", new{aspFor="Options.CenturyIds", selectedItems=new int[]{0}})
+        
+        
        <input type="submit" value="Search" class="btn btn-primary" />
     </form>
-</div>
+</div>-->
+
 
 <div class="row" style="margin-left:6%;margin-right:0%;margin-top:2%;">
     @{
@@ -20,7 +50,7 @@
         {
             if (item.Visibility == true)
             {
-                <div class="card" style="width: 20%;margin:1.5%;height:400px;">
+                <div class="card" style="width: 240px;margin:1.5%;height:400px;">
                     <img src=@item.ImagePath class="card-img-top" style="width: 100%;height:65%;" asp-append-version="true">
                     <div class="card-body">
                         <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;">@Html.DisplayFor(modelItem => item.Name)</a>
@@ -41,7 +71,9 @@
                                     ...
                                 </d>
                             }
-                        } 
+                        }
+                        
+                        
                     </div>
                 </div>
             }
@@ -49,3 +81,10 @@
     }
 
 </div>  
+
+<style>
+select{
+    width:200px;
+}
+    
+</style>

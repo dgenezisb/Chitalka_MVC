@@ -1,12 +1,17 @@
 ﻿@model IList<ChitalkaMVC.Storage.Entities.Note>
-<div class="row">
-    @foreach(var item in Model){
-    <div style="border: 2px solid rgba(0, 0, 0, 0.125);border-radius: 0.25rem;background-color: #ebbfd7;width:200px;word-break: break-word;">
-    <h4>@item.Title</h4>
-    @item.Text<br/>
-    <a asp-controller="Notes" asp-action="Edit" asp-route-id="@item.Id">Edit |</a>
-    <a asp-controller="Notes" asp-action="Delete" asp-route-id="@item.Id">Delete🚽</a>
-    </div>
 
+    <div class="list-group list-group-flush" style="height:350px;width:80%;margin-left:10%;margin-top:5%;overflow-y:scroll;">
+    @foreach(var item in Model)
+    {
+        <div class="list-group-item list-group-item-action">
+            
+          <div style="text-align:left">@item.Title</div>
+          <div style="text-align:center">@item.Text</div>
+          <div style="text-align:right"><a asp-controller="Notes" asp-action="Edit" asp-route-id="@item.Id">Edit |</a>
+            <a asp-controller="Notes" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+          </div>
+        
+        </div>
+        
     }
     </div>

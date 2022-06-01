@@ -4,11 +4,20 @@
     ViewData["Title"] = Model.Name;
 }
 
-<h2>@Model.Name</h2>
-<div>
-    <img src=@Model.ImagePath asp-append-version="true" style="width:50%;height:70%;"/>
-    <h5>Name: @Model.Name</h5>
-    <h5>Country: @Model.Country.Name</h5>
+<h2 style="text-align:center">@Model.Name</h2>
+<div style="text-align:center">
+    <img src=@Model.ImagePath asp-append-version="true" style="width:500px;height:500px;"/>
+    <div style="margin-left:42%">
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item" style="text-align:center">
+             Name: @Model.Name
+            </li>
+            <li class="list-group-item">
+                Country: @Model.Country.Name
+            </li>
+        </ul>
+    </div>
+    
 @*    <p>
         @Model.Description
     </p>*@
@@ -18,7 +27,7 @@
     if(Model.Books!=null)
     foreach (var item in Model.Books)
     {
-        <div class="card" style="width: 20%;margin:1.5%;height:400px;">
+        <div class="card" style="width: 220px;margin:1.5%;height:350px;">
             <img src=@item.ImagePath class="card-img-top" style="width: 100%;height:65%;" asp-append-version="true">
             <div class="card-body">
                 <a asp-controller="Books" asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;">@Html.DisplayFor(modelItem => item.Name)</a>

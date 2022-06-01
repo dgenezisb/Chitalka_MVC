@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "New Note";
 }
-<h4>New Note</h4>
+<h4 style="text-align:center">New Note</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div >
+    <div style="width:50%;margin-left:25%;margin-top:3%;height:380px;">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Username" />
@@ -17,7 +17,7 @@
                 <textarea style="resize: none;" asp-for="Text" class="form-control"></textarea>
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div style="margin-left:45%;margin-top:5%;" class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

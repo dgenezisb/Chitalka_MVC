@@ -3,19 +3,28 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 style="text-align:center">Edit</h1>
 
-<h4>Book</h4>
+
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div >
+    <div style="width:80%;margin-left:10%">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Book.Id" />
             <div class="form-group">
-               @await Component.InvokeAsync("ListAuthors", new{aspFor="Book.AuthorId", authorId=Model.Book.AuthorId})
-                @await Component.InvokeAsync("ListCenturies", new{aspFor="Book.CenturyId", centuryId=Model.Book.CenturyId})
-                @await Component.InvokeAsync("ListGenres", new{aspFor="GenreIds", selectedGenres=Model.Book.Genres.Select(u=>u.Id)})
+                <div style="margin-right:5%;">
+                     @await Component.InvokeAsync("ListAuthors", new{aspFor="Book.AuthorId", authorId=Model.Book.AuthorId})
+                </div>
+              
+                <div style="margin-left:40%;margin-top:-23px;">
+                     @await Component.InvokeAsync("ListCenturies", new{aspFor="Book.CenturyId", centuryId=Model.Book.CenturyId})
+                </div>
+               
+                <div style="margin-left:81%;margin-top:-23px;">
+                    @await Component.InvokeAsync("ListGenres", new{aspFor="GenreIds", selectedGenres=Model.Book.Genres.Select(u=>u.Id)})
+                </div>
+                
                 <input hidden asp-for="Book.ImagePath" value="placeholder" class="form-control" />
                 <label asp-for="Book.Name" class="control-label"></label>
                 <input required asp-for="Book.Name" class="form-control" />
@@ -40,7 +49,7 @@
                     <img style="height: 225px; width: 225px" src=@Model.Book.ImagePath asp-append-version="true" />
             </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-left:45%;margin-top:5%;">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -54,3 +63,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<style>
+    select{width:200px;}
+</style>
